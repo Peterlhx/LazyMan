@@ -1,35 +1,31 @@
 _LazyMan.prototype.sayHi = function(name) {
-  var self = this
-  this.tasks.push(setTimeout.bind(null, function() {
+  this.tasks.push(setTimeout.bind(null, () => {
     console.log("Hi! This is " + name + "!")
-    self.next()
+    this.next()
   }))
   return this
 }
 
 _LazyMan.prototype.eat = function(thing) {
-  var self = this
-  this.tasks.push(setTimeout.bind(null, function() {
+  this.tasks.push(setTimeout.bind(null, () => {
     console.log("eat " + thing + " ~")
-    self.next()
+    this.next()
   }))
   return this
 }
 
 _LazyMan.prototype.sleep = function(time) {
-  var self = this
-  this.tasks.push(setTimeout.bind(null, function() {
+  this.tasks.push(setTimeout.bind(null, () => {
     console.log("Wake up after " + time + " second")
-    self.next()
+    this.next()
   }, time * 1000))
   return this
 }
 
 _LazyMan.prototype.sleepFirst = function(time) {
-  var self = this
-  this.tasks.unshift(setTimeout.bind(null, function() {
+  this.tasks.unshift(setTimeout.bind(null, () => {
     console.log("Wake up after " + time + " second")
-    self.next()
+    this.next()
   }, time * 1000))
   return this
 }
